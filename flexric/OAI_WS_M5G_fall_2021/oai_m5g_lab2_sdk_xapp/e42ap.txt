@@ -1,0 +1,23 @@
+xApp, SDK, RIC;
+xApp => SDK : init;
+SDK  => RIC : E42SetupReq();
+RIC => SDK  : "E42SetupResp(CAPS,XAPP_ID)";
+SDK box SDK : "xApp(ctx)" ;
+SDK => xApp : "ok(CAPS, BS)";
+xApp => SDK : "report(SM, CB, args)";
+SDK => RIC  : "E42ReportReq(SM, XAPP_ID, REQ_ID)";
+RIC => SDK  : "E42ReportResp(REQ_ID)";
+RIC => SDK  : "E42Indication(REQ_ID,data)";
+SDK box SDK : "Process(data)" ;
+SDK => xApp :  cb(data);
+xApp => xApp : run_periodic();
+xApp => SDK : "remove_report(SM)";
+SDK => RIC  : "E42RemoveReportReq(REQ_ID,XAPP_ID)";
+RIC => SDK  : "E42RemoveReportResp(REQ_ID)";
+SDK => xApp : OK/KO;
+xApp => SDK : "close()"; 
+SDK => RIC  : "E42ReleaseRequest(XAPP_ID)";
+RIC => SDK  : "E42ReleaseAccept()";
+SDK box SDK : "remove(ctx,data)" ;
+SDK => xApp : "Ok";
+

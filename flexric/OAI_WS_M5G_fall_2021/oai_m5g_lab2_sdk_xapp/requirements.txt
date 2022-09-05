@@ -1,0 +1,5 @@
+certifi==2021.10.8
+cffi==1.15.0
+pycparser==2.21
+pynng==0.7.1
+sniffio==1.2.0
