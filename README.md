@@ -4,6 +4,7 @@ OpenAirInterface (OAI) project is an open source project maintained and develope
 ### The main components
 #### Software component
 `openair-cn`: simulation of LTE EPC (Evolved Packet Core), mainly composed of HSS (Home Subscriber Server), MME (Mobility Management Entity), SGW ( Serving Gateway), PGW (PDN Gateway) and other network elements.
+
 `openairinterface5g`: Simulation of terminal and base station side. The project can be compiled into a base station (eNodeB) or user terminal (UE) by changing the compilation options according to requirements. When emulating a base station, it provides 3GPP-compliant S1 interfaces, including the control-plane S1-MME interface and the user-plane S1-U interface.
 #### Hardware component
 The OAI platform requires Intel-based PCs to deploy base stations or user terminals, and has been designed to be compatible with a variety of RF hardware platforms and to interface easily with third-party SDR (Software Defined Radio) peripherals, including the Eurecom XMIMO2 RF platform that is currently officially supported, USRP (Universal Software Radio Peripheral) B and X series, BladeRF and LimeSDR.
